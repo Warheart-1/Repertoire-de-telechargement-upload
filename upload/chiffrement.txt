@@ -1,0 +1,56 @@
+CHIFFREMENT 
+
+Décryptage: essayer de retrouver le texte original SANS connaitre la clé de déchiffrement.
+(cassage de l'algorithme de chiffrement)
+
+utiliser une attaque force brute
+ou trouver une faille mathématique
+Pas confondre le déchiffrement et décryptage.
+
+chiffrement symétrique:
+utilisisation d'une seule clé pour chiffré et déchiffrer les messages.
+la clé est appelée clé secrète.
+
+Problème, transmission de la clé.==> solution: algo de Diffie-Hellman.
+Avantage: rapide et peu gourmand
+garantit implicitement l'authentification de l'émetteur.
+Exemple: RC4
+	 DES
+	 Triple-DES
+	 AES==> celui qui est utilisé actuellement. 
+
+Chiffrement asymétrique:
+deux clé:
+une clé publique connue de tout le monde
+une clé privée 
+
+deux clé sont reliées par une fonction mathématique.
+
+Exemple ECC, RSA, ElGamal
+
+avantage: simplifier la gestion des clés
+est gourmand en puissance de calcul
+
+Signature numérique:
+équivalent électronique de la signature physique des documents papiers;
+Grantit: l'anthentication de l'auteur du texte 
+intégrité du texte
+est une suite de caractères qui est ajoutée à la suite du texte.
+
+Diffie-Hellman
+
+échange des extrémités de nombres très grand et premier.
+serveur DH, choisit trois nombres   et g qui transmet en clair sur le réseau. il garde un numéro  f secret.
+le client DH va garder un nombre E secret. puis il va caluler e =g^E (mod p) puis on émet e en clair.
+le serveur DH calcul f=g^F (mod p) puis l'envoie en clair.
+le serveur DH prend aussi e^E (mod p) = g^EF
+le client DH calcul f^E (mod p)= g^EF (mod p)
+
+
+Certificat
+un fichier texte qui associe une clé publique à une entité
+est délivré par une autorité de certification (CA)
+contient deux parties:
+première partie: information du propriétaire du certificat.
+deuxième partie: signature de l'autorités de certification qui est préenregistrée dans les logiciels utilisant du chiffrement
+

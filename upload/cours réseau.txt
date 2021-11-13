@@ -1,0 +1,131 @@
+Non Répudiation : Ne pas pouvoir nier une trasaction. (ne pas pour demander un remboursement dans le cas d'une transaction en ligne)
+Deux types d'attaques: 
+Intrusion: s'introduire sur un réseau pour accéder à une information sans y être autorisé.
+Déni de service (DOS denial of service): mettre KO un réseau par exemple.
+
+Deux défense : Matérielle : liées à l'architecture du réseau
+logicille : liées aux protocoles.
+
+Attauques et techniques de défensqe qui interviennent à tout niveau du modèle TCP/IP.
+
+FOCNTIONNEMENT application: 
+mode client serveur:
+serveur ==> attente d'une requête pour edxécuter l'application.
+services qui sont des programmes, enfcapusuler dans tcp oui udp.
+processsus serveur identifié par un numéro de port tcp ou udp, en tête de la couche transport.
+client indentifié par un numéro de port d'une valeur entre de 1024 et 65536, choisi par l'OS.
+Quadruplet ==> caractérise de manière unique une connexion. 
+Socket (donnée de l'adresse ip + port).
+
+Flag ==> donnée de controle qui vaut 1 ou 0.
+
+ACK TOUJOURS UN 1 SAUF POUR L'OUVERTURE DU CLIENT.
+
+FLAG RST ReSeT est positionné par une machine.
+Peut fermé une connexion TCP brutalement s'il y a une anomalie.
+
+ ATTAQUE INTRUSION 
+Failles exploitées : permissivité du réseau (pas assez de controle)
+Crédulité/méconnaissance technique des utilisateurs
+-ingénierie sociale
+-cassages de mots de passe <== très souvent
+
+technique intrusion:
+usurpation MAC ou IP
+principe: fonctionne sur les systè-me dont le controle d'accès est fondé sur l'adresse MAC ou IP
+consiste à s'ppropier l'adresse mac ou ip d'une machine légitime
+nécesssite généralement que la machine légitime soit éteinte.
+   
+DNS spoofing: fait correspondre l'adresse IP d'une machine contrôlée par un pirate au nom d'hôte d'une machine légale
+un serveur dns pirate intercepte les requêtes d'une client et envoie une fausses associations nom ip en réponse/
+DNS cache poisonning : serveur DNS pirate envoie de fausses associations nom adresse ip à un serveur DNS officiel que les enregistre en cache.
+
+ARP spoofing:
+faire correspondre l'adresse mac d'une machine contrôlé par un pirate à l'adresse IP d'une machine légitime dans le cache ARP des machines.
+1- Requête ARP en brocast 
+
+L'attaque de l'homme du milleu qui consiste à intercepter le trafic entre deux extrémités;
+le modifer;
+ou y injecter des paquets supplémenta ires;
+sans que les victimes s'en aperçoivent;
+Procédure d'authentification des extrémités pour sécurité de ces attaques.
+
+Mac overflow, sature la table de commutation d'adresses mac aléatoires. 
+
+Technique d'intrusion avec la crudulité des utilisateur:
+Phishing 
+Web spoofing : page web qui recopie la charte graphique d'un site officiel
+Mail spoofing : vorir phishing.
+
+Sniffers (analyse de trames):  de base outil d'information qui capture tout le trafic.
+enregistrent les informations circulant sur le réseaux en mode diffusion.
+En l'absence de chiffrement , ils peuvent enregistrer des informations confidentielles.
+
+malwares: 
+trojan : programme qui fait une backdoor , permtettant une  attaqque à distance d'accéder à des données confidenteilles ou d'utiliser des ressources. 
+ver: programme qui propager d'autre trojan. notamment des enregisteur de frappe
+keylogger/screenlogger.
+
+Attaque de déni de service
+Débourdement (overflow)
+attaquant émet une quantité de trafic telle quue le récepteur ou le réseau traversé n'a pas assez ressources pour traiter et faire planter ou congestionné.
+
+exemple : ping de la mort (patcher)
+smurfing : variante du ping qui surchange le réseau et le destinataire victime grâce à une commande ping où:
+adresse ip source est la victime
+adresse ip destination est 
+
+TCP-SYN flooding, l'attaquant émet de nombreux SYN sans renvoyer d'ACK pour faire résserver pleins de ressources au serveur.
+DDOS : implique un grand nombre de machines répaties sur internet sont infecctées par dpar logiciel malveillant (bot) qui:
+est déclenché par un pirate à un instant précis pour lancer une attaque les machines infectées.
+peut s'activer périodiquement pour réaliser une action frauduleuse pendant un temps limité (ex: spam).
+
+Principes généraux:
+On accorde le minimum de droits aux applications.
+On sécurise les machines individuellement et l'accès au réseau dans son ensemble:
+Authentification et firewall entré sortie
+Détecteur d'intrusion à l'entré du réseau et sur les serveurs critiques
+Proxy sur le réseau pour contrôle les sccès externes de tous les postes.
+
+Pare-feu (Firewall)
+principe: filtrage/blocage réseau.
+
+peut intervenir à tout les niveaux
+filtre les paquets entrant sur le réseau privé à internet.
+
+Principe de configurisation:
+tout interdire
+les règles sont testées l'une après l'autre : dès qu'une règle conrrespond, elle est appliquée.
+plus la règle est précise, moins il y a de risque de faille.
+
+DMZ DeMilitaruzed Zone
+2types de machine en entreprise
+1er type: machine qui sur lesquelles l'accès initié depuis l'extérieur indésirable.
+autorisé d'ouvrir des connexion http
+pas de connexion sur ces machines.
+
+2ème type: les serveurs d'entreprise qui doivent communiquer avec l'extérieur.
+ex: serveur DNS, serveurs de messgaeire, serveur http hébergenant le site vitrin,e
+
+1ère méthode: un seul firewall à 3port
+
+proxy:
+Programme qui joue intermédiaire entre client serveur:
+utiliser pour le web
+principe: prend en compte les requêtes émises par les clients les envoie au serveur et retransmet aux clients.
+objectif:
+controle et securiser les connexions
+restreindre les connexion autorisées
+ennregistrer les données
+
+système de détecction d'intrusion
+tente de détecteer les activités sur un réseau ou sur une boîte;
+qui se base sur des règles décravant des comportements suspects.
+exemple: snort.
+
+
+
+
+
+
+
